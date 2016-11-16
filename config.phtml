@@ -1,0 +1,42 @@
+<?php
+// set to defaults if undefined
+if ( !isset($config->addadmins ) ) $config->addadmins = false;
+if ( !isset($config->addusers ) )  $config->addusers = false;
+if ( !isset($config->acmaster ) )  $config->acmaster = false;
+$yesno = array( get_string('no'), get_string('yes') );
+?>
+<table cellspacing="0" cellpadding="5" border="0">
+    <tr>
+        <td colspan="3">
+            <h2 class="main"><?php print_string('settings', 'auth_connect'); ?></h2>
+        </td>
+    </tr>
+    <tr>
+        <td align="right"><label for="menuaddusers"><?php print_string('addusers', 'auth_connect'); ?></label></td>
+        <td>
+            <?php echo html_writer::select( $yesno, "addusers", $config->addusers, false );?>
+        </td>
+        <td>
+            <?php print_string('addusers_hint', 'auth_connect'); ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right"><label for="menuaddadmins"><?php print_string('addadmins', 'auth_connect'); ?></label></td>
+        <td>
+            <?php echo html_writer::select( $yesno, 'addadmins', $config->addadmins, false );?>
+        </td>
+        <td>
+            <?php print_string('addadmins_hint', 'auth_connect'); ?>
+        </td>
+    </tr>
+    <tr>
+        <td align="right"><label for="menuacmasters"><?php print_string('acmaster', 'auth_connect'); ?></label></td>
+        <td>
+           <?php echo html_writer::select($yesno, 'acmaster', $config->acmaster, false); ?>
+        </td>
+        <td>
+            <?php print_string('acmaster_hint', 'auth_connect'); ?>
+        </td>
+
+    </tr>
+</table>
